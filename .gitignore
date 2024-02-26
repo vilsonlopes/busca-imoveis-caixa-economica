@@ -1,0 +1,14 @@
+.venv/
+geckodriver.log
+.idea/
+__pycache__/
+expr_regular.py
+externo1.html
+functions.py
+temp1.py
+temp2.py
+temp3.py
+temp4.py
+temp5.py
+.env
+
