@@ -10,6 +10,11 @@ jobs:
   run_schedule:
     runs-on: ubuntu-latest
 #    runs-on: windows-latest
+    strategy:
+      matrix:
+        firefox: [ '84.0', 'latest-beta', 'latest-devedition', 'latest-nightly', 'latest-esr', 'latest' ]
+    name: Firefox ${{ matrix.firefox }} sample
+
     steps:
 
       - name: check conteudo do repositorio
@@ -25,9 +30,14 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pip install -r requirements.txt
 
-      - name: instalar firefox
+      - name: Setup firefox
+        id: setup-firefox
         uses: browser-actions/setup-firefox@v1
-        run: firefox --version
+        with:
+            firefox-version: ${{ matrix.firefox }}
+        - run: |
+            echo Installed firefox versions: ${{ steps.setup-firefox.outputs.firefox-version }}
+            ${{ steps.setup-firefox.outputs.firefox-path }} --version
 
       - name: edit .env file
         env:
