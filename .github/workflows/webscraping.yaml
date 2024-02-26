@@ -2,9 +2,9 @@ name: Busca-Imóveis
 run-name: ${{ github.actor }} - Busca Imóveis Caixa
 
 on:
-  schedule:
+  workflow_dispatch:
+#  schedule:
 #    - cron:  '30 5,13 * * *'
-    - cron:
 
 jobs:
   run_schedule:
