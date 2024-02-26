@@ -16,9 +16,9 @@ from funcoes import remove_duplicado
 url = "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?sltTipoBusca=imoveis"
 
 # Configurações iniciais
-option = Options()
+# option = Options()
 # option.add_argument('--headless')
-driver = webdriver.Firefox(options=option, service=FirefoxService())
+driver = webdriver.Firefox()
 driver.implicitly_wait(80)  # seconds
 driver.get(url)
 # driver.maximize_window()
