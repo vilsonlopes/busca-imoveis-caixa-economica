@@ -25,6 +25,10 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pip install -r requirements.txt
 
+      - name: instalar firefox
+        uses: browser-actions/setup-firefox@v1
+        run: firefox --version
+
       - name: edit .env file
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
