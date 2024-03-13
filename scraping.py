@@ -18,8 +18,8 @@ url = "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?sltTipoBusca=
 # Configurações iniciais
 # option = Options()
 # option.add_argument('--headless')
-driver = webdriver.Firefox()
-driver.implicitly_wait(80)  # seconds
+driver = webdriver.Chrome()
+driver.implicitly_wait(60)  # seconds
 driver.get(url)
 # driver.maximize_window()
 
@@ -356,28 +356,31 @@ for imovel in imoveis_selecionados_refinado:
     if not endereco_imovel and not endereco_imovel_dois and not endereco_imovel_tres and not endereco_imovel_quatro and not endereco_imovel_cinco and not endereco_imovel_seis:
         endereco_imovel = endereco_imovel_sete
 
-    body.append(f'<div id="listaimoveispaginacao" class="control-item control-span-12_12"><ul class="control-group '
-                f'no-bullets" style="width:100%;background:#f3f4f6;"><li class="group-block-item;"><div '
-                f'class="fotoimovel-col1"><a '
-                f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
-                f'{numero_imovel}"><img src="{imagem_imovel}"alt="Consulte detalhes do imóvel" title="Consulte '
-                f'detalhes do imóvel" class="fotoimovel"onclick="javascript:detalhe_imovel('
-                f'8444422892646);"></div><div class="dadosimovel-col2"><ul class="form-set inside-set no-bullets"><li '
-                f'class="form-row clearfix" style="margin-bottom:0.5em;"><div class="control-item '
-                f'control-span-12_12"><span><strong><font style="font-size:0.80em;"><a '
-                f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
-                f'{numero_imovel}"onclick="javascript:detalhe_imovel(8444422892646); return false;">'
-                f'{cidade_titulo[0]}</a></font></strong></span><a href="#" onclick="javascript:favoritos('
-                f'8444422892646); return false;" alt="favoritos"><i class="fa fa-heart-o" alt="icone favoritos" '
-                f'title="Adicionar à lista de favoritos"></i></a><br><span><font style="font-size:0.80em;">'
-                f'{valor_avaliacao[0]}<br><b>{str(*valor_venda)}</font></span><br><span><font '
-                f'style="font-size:0.75em;">{caracteristicas_imovel[0]}<br>{tipo_venda[0]}<br>'
-                f'{numero_do_imovel[0]}<br>{endereco_imovel[0]}</font></span></div></li><li class="form-row '
-                f'clearfix"><div class="control-item control-span-5_12" style="margin-bottom:0.1em;"><span><a '
-                f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
-                f'{numero_imovel}" onclick="javascript:detalhe_imovel(8444422892646); return false;" style="color: '
-                f'#ff7200; font-size:0.80em;"><i class="fa fa-caret-right"></i>Detalhes do '
-                f'imóvel</a></span></div></li></ul></div></li></ul><br></div>')
+    try:
+        body.append(f'<div id="listaimoveispaginacao" class="control-item control-span-12_12"><ul class="control-group '
+                    f'no-bullets" style="width:100%;background:#f3f4f6;"><li class="group-block-item;"><div '
+                    f'class="fotoimovel-col1"><a '
+                    f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
+                    f'{numero_imovel}"><img src="{imagem_imovel}"alt="Consulte detalhes do imóvel" title="Consulte '
+                    f'detalhes do imóvel" class="fotoimovel"onclick="javascript:detalhe_imovel('
+                    f'8444422892646);"></div><div class="dadosimovel-col2"><ul class="form-set inside-set no-bullets"><li '
+                    f'class="form-row clearfix" style="margin-bottom:0.5em;"><div class="control-item '
+                    f'control-span-12_12"><span><strong><font style="font-size:0.80em;"><a '
+                    f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
+                    f'{numero_imovel}"onclick="javascript:detalhe_imovel(8444422892646); return false;">'
+                    f'{cidade_titulo[0]}</a></font></strong></span><a href="#" onclick="javascript:favoritos('
+                    f'8444422892646); return false;" alt="favoritos"><i class="fa fa-heart-o" alt="icone favoritos" '
+                    f'title="Adicionar à lista de favoritos"></i></a><br><span><font style="font-size:0.80em;">'
+                    f'{valor_avaliacao[0]}<br><b>{str(*valor_venda)}</font></span><br><span><font '
+                    f'style="font-size:0.75em;">{str(caracteristicas_imovel[0])}<br>{str(tipo_venda[0])}<br>'
+                    f'{numero_do_imovel[0]}<br>{endereco_imovel[0]}</font></span></div></li><li class="form-row '
+                    f'clearfix"><div class="control-item control-span-5_12" style="margin-bottom:0.1em;"><span><a '
+                    f'href="https://venda-imoveis.caixa.gov.br/sistema/detalhe-imovel.asp?hdnOrigem=index&hdnimovel='
+                    f'{numero_imovel}" onclick="javascript:detalhe_imovel(8444422892646); return false;" style="color: '
+                    f'#ff7200; font-size:0.80em;"><i class="fa fa-caret-right"></i>Detalhes do '
+                    f'imóvel</a></span></div></li></ul></div></li></ul><br></div>')
+    except:
+        ...
 
 
 body_replace = str(body)[2:-2].replace("', '", '')
