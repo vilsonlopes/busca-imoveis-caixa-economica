@@ -30,15 +30,6 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install pip install -r requirements.txt
 
-      - name: Setup firefox
-        id: setup-firefox
-        uses: browser-actions/setup-firefox@v1
-        with:
-            firefox-version: ${{ matrix.firefox }}
-        - run: |
-            echo Installed firefox versions: ${{ steps.setup-firefox.outputs.firefox-version }}
-            ${{ steps.setup-firefox.outputs.firefox-path }} --version
-
       - name: edit .env file
         env:
           EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
