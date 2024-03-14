@@ -18,8 +18,7 @@ jobs:
 
       - name: instalando google chrome
         uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: 120
+        run: chrome --version
 
       - name: instalar python
         uses: actions/setup-python@v4
