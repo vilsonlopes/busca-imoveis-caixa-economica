@@ -24,9 +24,9 @@ driver.get(url)
 # driver.maximize_window()
 
 # Opções do site da caixa para busca de imóveis
-estado = driver.find_element(By.ID, "cmb_estado")
+estado = driver.find_element(By.NAME, "cmb_estado")
 select = Select(estado)
-select.select_by_value("GO")
+select.select_by_visible_text("GO")
 time.sleep(5)
 
 cidade = driver.find_element(By.ID, 'cmb_cidade')
