@@ -33,9 +33,9 @@ jobs:
           EMAIL_CLIENTE1: ${{ secrets.EMAIL_CLIENTE1 }}
         run: |
           touch .env
-          echo EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }},  >> .env
-          echo EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}, >> .env
-          echo EMAIL_CLIENTE1=${{ secrets.EMAIL_CLIENTE1 }}, >> .env
+          echo EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }}  >> .env
+          echo EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }} >> .env
+          echo EMAIL_CLIENTE1=${{ secrets.EMAIL_CLIENTE1 }} >> .env
 
       - name: executar arquivo principal
         run: python scraping.py
