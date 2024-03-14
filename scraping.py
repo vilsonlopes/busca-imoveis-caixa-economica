@@ -18,7 +18,7 @@ url = "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?sltTipoBusca=
 # Configurações iniciais
 # option = Options()
 # option.add_argument('--headless')
-driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.implicitly_wait(60)  # seconds
 driver.get(url)
 # driver.maximize_window()
