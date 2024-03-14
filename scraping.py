@@ -18,13 +18,13 @@ url = "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?sltTipoBusca=
 # Configurações iniciais
 # option = Options()
 # option.add_argument('--headless')
-driver = webdriver.Firefox()
+driver = webdriver.Chrome()
 driver.implicitly_wait(60)  # seconds
 driver.get(url)
 # driver.maximize_window()
 
 # Opções do site da caixa para busca de imóveis
-estado = driver.find_element(By.ID, "cmb_estado")
+estado = driver.find_element(By.NAME, "cmb_estado")
 select = Select(estado)
 select.select_by_value("GO")
 time.sleep(5)
