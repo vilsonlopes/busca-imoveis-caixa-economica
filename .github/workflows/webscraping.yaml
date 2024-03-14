@@ -19,7 +19,7 @@ jobs:
       - name: instalar python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: '3.11'
 
       - name: instalar os pacotes do requirements.txt
         run: |
@@ -33,7 +33,9 @@ jobs:
           EMAIL_CLIENTE1: ${{ secrets.EMAIL_CLIENTE1 }}
         run: |
           touch .env
-          echo EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }}, EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}, EMAIL_CLIENTE1=${{ secrets.EMAIL_CLIENTE1 }} >> .env
+          echo EMAIL_ADDRESS=${{ secrets.EMAIL_ADDRESS }},  >> .env
+          echo EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}, >> .env
+          echo EMAIL_CLIENTE1=${{ secrets.EMAIL_CLIENTE1 }}, >> .env
 
       - name: executar arquivo principal
         run: python scraping.py
