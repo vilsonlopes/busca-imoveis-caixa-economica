@@ -9,7 +9,7 @@ on:
 jobs:
   run_schedule:
 #    runs-on: ubuntu-latest
-    runs-on: mac-latest
+    runs-on: windows-latest
 
     steps:
 
@@ -18,6 +18,8 @@ jobs:
 
       - name: instalando google chrome
         uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: '1.x'
 
       - name: instalar python
         uses: actions/setup-python@v4
