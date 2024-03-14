@@ -16,6 +16,10 @@ jobs:
       - name: check conteudo do repositorio
         uses: actions/checkout@v3
 
+      - name: instalando Google Chrome
+        uses: browser-actions/setup-chrome@v1
+        run: chrome --version
+
       - name: instalar python
         uses: actions/setup-python@v4
         with:

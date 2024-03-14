@@ -16,9 +16,9 @@ from funcoes import remove_duplicado
 url = "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp?sltTipoBusca=imoveis"
 
 # Configurações iniciais
-# option = Options()
-# option.add_argument('--headless')
-driver = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_argument("--headless=new")
+driver = webdriver.Chrome(options=options)
 driver.implicitly_wait(60)  # seconds
 driver.get(url)
 # driver.maximize_window()
@@ -398,4 +398,4 @@ else:
               f'/>Foram encontrados <b>{qtd}</b> imóveis.</font><br /><br>{body_replace}<br>Caso deseje tirar algum '
               f'desses imóveis de sua busca,<br> por gentileza, enviar mensagem no WhatsApp (61) 98556-4096')
 
-driver.close()
+driver.quit()
